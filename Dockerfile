@@ -1,10 +1,13 @@
 FROM alpine:latest
 
+# upgrade alpine
+RUN apk upgrade --no-cache
+
 # install plugin dependencies
 RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ su-exec tini nodejs
 
 ENV KIBANA_MAJOR 4.5
-ENV KIBANA_VERSION 4.5.1
+ENV KIBANA_VERSION 4.5.3
 
 COPY install_kibana.sh /
 
